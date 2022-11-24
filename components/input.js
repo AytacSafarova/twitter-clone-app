@@ -15,10 +15,15 @@ import {
   updateDoc,
 } from "@firebase/firestore";
 import { getDownloadURL, ref, uploadString } from "@firebase/storage";
+// import { signOut, useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
-import { Picker } from "emoji-mart";
+const Picker = dynamic(() => import("emoji-picker-react"), { ssr: false });
+import "emoji-mart";
+// import { Picker } from "emoji-mart";
+
 
 function Input() {
+  // const { data: session } = useSession();
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -26,11 +31,16 @@ function Input() {
   const [showEmojis, setShowEmojis] = useState(false);
 
   const sendPost = async () => {
+    console.log(input, 'input');
     if (loading) return;
     setLoading(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      text: input,
+      // id: session.user.uid,
+      // username: session.user.name,
+      // userImg: session.user.image,
+      // tag: session.user.tag,
+      inputext: input,
       timestamp: serverTimestamp(),
     });
 
@@ -52,6 +62,7 @@ function Input() {
   };
 
   const addImageToPost = (e) => {
+    console.log('files');
     const reader = new FileReader();
     if (e.target.files[0]) {
       reader.readAsDataURL(e.target.files[0]);
@@ -63,11 +74,12 @@ function Input() {
   };
 
   const addEmoji = (e) => {
+    console.log('emoji');
     let sym = e.unified.split("-");
     let codesArray = [];
     sym.forEach((el) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
-    setInput(input + emoji);
+    setInput(input +emoji);
   };
 
   return (
@@ -76,8 +88,12 @@ function Input() {
         loading && "opacity-60"
       }`}
     >
-      
-   
+      {/* <img
+        src={session.user.image}
+        alt=""
+        className="h-11 w-11 rounded-full cursor-pointer"
+        onClick={signOut}
+      /> */}
       <div className="divide-y divide-gray-700 w-full">
         <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
           <textarea
