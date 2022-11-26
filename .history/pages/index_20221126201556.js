@@ -7,7 +7,6 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 export default function Home({providers}) {
   const { data: session } = useSession()
 if(!session) return <Login providers={providers}/>
-console.log(session);
   return (
     <div className="">
       <Head>
@@ -31,7 +30,7 @@ export async function getServerSideProps(context) {
   //   (res) => res.json()
   // );
   const providers = await getProviders();
-  const session = await getSession(context);
+  // const session = await getSession(context);
 console.log(providers);
   return {
     props: {

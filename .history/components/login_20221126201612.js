@@ -3,7 +3,7 @@ import Image from "next/image";
 
 function Login({ providers, session }) {
     console.log(providers);
-    console.log(session);
+    
     return (
         <div className="flex flex-col items-center space-y-20 pt-48">
             <Image

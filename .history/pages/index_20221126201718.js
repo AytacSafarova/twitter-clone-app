@@ -7,7 +7,7 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 export default function Home({providers}) {
   const { data: session } = useSession()
 if(!session) return <Login providers={providers}/>
-console.log(session);
+loh
   return (
     <div className="">
       <Head>
