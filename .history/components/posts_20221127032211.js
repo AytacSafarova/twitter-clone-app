@@ -136,8 +136,11 @@ import {
               <div className="icon group-hover:bg-[#1d9bf0] group-hover:bg-opacity-10">
                 <ChatIcon className="h-5 group-hover:text-[#1d9bf0]" />
               </div>
+              {comments.length > 0 && (
                 <span className="group-hover:text-[#1d9bf0] text-sm">
+                  {comments.length}
                 </span>
+              )}
             </div>
   
             {session.user.uid === post?.id ? (

@@ -137,7 +137,9 @@ import {
                 <ChatIcon className="h-5 group-hover:text-[#1d9bf0]" />
               </div>
                 <span className="group-hover:text-[#1d9bf0] text-sm">
+                  {comments.length}
                 </span>
+              )}
             </div>
   
             {session.user.uid === post?.id ? (

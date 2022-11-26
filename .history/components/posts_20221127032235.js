@@ -138,6 +138,7 @@ import {
               </div>
                 <span className="group-hover:text-[#1d9bf0] text-sm">
                 </span>
+              )}
             </div>
   
             {session.user.uid === post?.id ? (

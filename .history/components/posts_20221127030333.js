@@ -26,16 +26,28 @@ import {
   import Moment from "react-moment";
   import { useRecoilState } from "recoil";
   import { db } from "../firebase";
-  import { modalState, postIdState } from "./atoms/modalAtom";
+  import { modalState, post } from "./atoms/modalAtom";
   function Posts({ id, post, postPage }) {
     const { data: session } = useSession();
     const [isOpen, setIsOpen] = useRecoilState(modalState);
     const [postId, setPostId] = useRecoilState(postIdState);
+    const [comments, setComments] = useState([]);
     const [likes, setLikes] = useState([]);
     const [liked, setLiked] = useState(false);
     const router = useRouter();
   
-
+    useEffect(
+      () =>
+        onSnapshot(
+          query(
+            collection(db, "posts", id, "comments"),
+            orderBy("timestamp", "desc")
+          ),
+          (snapshot) => setComments(snapshot.docs)
+        ),
+      [db, id]
+    );
+  
     useEffect(
       () =>
         onSnapshot(collection(db, "posts", id, "likes"), (snapshot) =>
@@ -129,15 +141,18 @@ import {
               className="flex items-center space-x-1 group"
               onClick={(e) => {
                 e.stopPropagation();
-                setPostId(id);
-                setIsOpen(true);
+                // setPostId(id);
+                // setIsOpen(true);
               }}
             >
               <div className="icon group-hover:bg-[#1d9bf0] group-hover:bg-opacity-10">
                 <ChatIcon className="h-5 group-hover:text-[#1d9bf0]" />
               </div>
+              {comments.length > 0 && (
                 <span className="group-hover:text-[#1d9bf0] text-sm">
+                  {comments.length}
                 </span>
+              )}
             </div>
   
             {session.user.uid === post?.id ? (
