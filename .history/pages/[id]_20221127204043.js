@@ -10,7 +10,7 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import Modal from "../components/modal";
+import Modal from "../components/Modal";
 import Sidebar from "../components/sidebar";
 import Post from "../components/posts";
 import { db } from "../firebase";
@@ -19,6 +19,7 @@ import Comment from "../components/comments";
 import Head from "next/head";
 import { Login } from "../components/login";
 import Aside from "../components/aside";
+import Sidebar from "../components/sidebar";
 function MainPage({ trendings, follows, providers }) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);

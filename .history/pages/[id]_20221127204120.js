@@ -10,7 +10,7 @@ import { getProviders, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
-import Modal from "../components/modal";
+imp
 import Sidebar from "../components/sidebar";
 import Post from "../components/posts";
 import { db } from "../firebase";

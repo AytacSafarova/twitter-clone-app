@@ -1,7 +1,6 @@
 import { SparklesIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
-import Input from "./input";
-import { onSnapshot, collection, query, orderBy } from "@firebase/firestore";
+improt import { onSnapshot, collection, query, orderBy } from "@firebase/firestore";
 import { db } from "../firebase";
 import Posts from "./posts";
 import { useSession } from "next-auth/react";
