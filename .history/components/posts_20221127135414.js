@@ -28,7 +28,7 @@ import { useRecoilState } from "recoil";
 import { modalState, postIdState } from "./atoms/modalAtom";
 import { db } from "../firebase";
 
-function Post({ id, post, postPage }) {
+function Posts({ id, post, postPage }) {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
@@ -126,7 +126,7 @@ function Post({ id, post, postPage }) {
           </div>
         </div>
         {postPage && (
-          <p className="text-[#d9d9d9] mt-0.5 text-xl">{post?.inputext}</p>
+          <p className="text-[#d9d9d9] mt-0.5 text-xl">{post?.text}</p>
         )}
         <img
           src={post?.image}
@@ -214,4 +214,4 @@ function Post({ id, post, postPage }) {
   );
 }
 
-export default Post;
+export default Posts;

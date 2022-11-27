@@ -4,13 +4,10 @@ import Feed from "../components/feed";
 import Login from "../components/login";
 import Modal from "../components/modal";
 import { getProviders, getSession, useSession } from "next-auth/react";
-import { useState } from "react";
-import { modalState } from "../components/atoms/modalAtom";
-import { useRecoilState } from "recoil";
 
 export default function Home({trendingResults, followResults, providers}) {
   const { data: session } = useSession()
-  const[isOpen,setIsOpen ]=useRecoilState(modalState)
+  const[]
 if(!session) return <Login providers={providers}/>
 console.log(session);
   return (
@@ -24,10 +21,7 @@ console.log(session);
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto ">
         <Sidebar />
         <Feed/>
-        {
-          isOpen &&      <Modal/>
-        }
-  
+        <Modal/>
       </main>
     </div>
   );
