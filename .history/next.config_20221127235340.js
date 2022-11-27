@@ -2,7 +2,7 @@ module.exports = {
   images: {
     domains: ["rb.gy"],
   },
-  reactStrictMode:true,
+  reacrt
   experimental:{
     forceSwcTransforms:true,
   }
