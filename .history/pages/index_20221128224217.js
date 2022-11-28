@@ -44,8 +44,8 @@ export async function getServerSideProps(context) {
   console.log(session);
   return {
     props: {
-      // trendings,
-      // follows,
+      trendings,
+      follows,
       providers,
       session,
     },

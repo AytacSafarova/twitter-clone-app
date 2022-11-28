@@ -32,20 +32,20 @@ export default function Home({ trendings, follows, providers }) {
   );
 }
 export async function getServerSideProps(context) {
-  // const trendings = await fetch("https://jsonkeeper.com/b/NKEV").then(
-  //   (res) => res.json()
-  // );
-  // const follows = await fetch("https://jsonkeeper.com/b/WWMJ").then(
-  //   (res) => res.json()
-  // );
+  const trendings = await fetch("https://jsonkeeper.com/b/NKEV").then(
+    (res) => res.json()
+  );
+  const follows = await fetch("https://jsonkeeper.com/b/WWMJ").then(
+    (res) => res.json()
+  );
 
   const providers = await getProviders();
   const session = await getSession(context);
   console.log(session);
   return {
     props: {
-      // trendings,
-      // follows,
+      trendings,
+      follows,
       providers,
       session,
     },
