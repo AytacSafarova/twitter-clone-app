@@ -14,7 +14,7 @@ export default function Home({ trendings, follows, providers }) {
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   if (!session) return <Login providers={providers} />;
   console.log(session);
-  re0turn (
+  return (
     <div className="">
       <Head>
         <title>Twitter</title>
