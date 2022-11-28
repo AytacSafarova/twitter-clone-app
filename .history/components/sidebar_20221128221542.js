@@ -38,13 +38,13 @@ console.log(session);
         className="text-[#d9d9d9] flex items-center justify-center mt-auto hoverAnimation xl:ml-auto xl:-mr-5"
         onClick={signOut}
       >
-        {/* <Image
-          src={session?.user?.image}
+        <Image
+          src={session.user.image}
           width={30}
           height={30}
           alt="img"
           className="h-10 w-10 rounded-full xl:mr-2.5"
-        /> */}
+        />
         <div className="hidden xl:inline leading-5">
           <h4 className="font-bold">{session.user.name}</h4>
           <p className="text-[#6e767d]">{session.user?.tag}</p>
