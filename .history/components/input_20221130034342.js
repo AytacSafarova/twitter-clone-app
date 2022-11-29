@@ -30,6 +30,7 @@ function Input() {
   const { data: session } = useSession();
 
   const sendPost = async () => {
+    console.log(docRef.id);
     console.log(input, "input");
     if (loading) return;
     setLoading(true);
@@ -42,7 +43,6 @@ function Input() {
       text: input,
       timestamp: serverTimestamp(),
     });
-    console.log(docRef.id);
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
 

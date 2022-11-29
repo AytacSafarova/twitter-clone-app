@@ -42,7 +42,6 @@ function Input() {
       text: input,
       timestamp: serverTimestamp(),
     });
-    console.log(docRef.id);
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
@@ -113,9 +112,11 @@ function Input() {
               >
                 <XIcon className="text-white h-5" />
               </div>
-              <img
+              <Image
                 src={selectedFile}
                 alt="img"
+                width={30}
+                height={30}
                 className="rounded-2xl max-h-80 object-contain"
               />
             </div>

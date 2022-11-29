@@ -42,7 +42,6 @@ function Input() {
       text: input,
       timestamp: serverTimestamp(),
     });
-    console.log(docRef.id);
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
@@ -116,6 +115,7 @@ function Input() {
               <img
                 src={selectedFile}
                 alt="img"
+          
                 className="rounded-2xl max-h-80 object-contain"
               />
             </div>
