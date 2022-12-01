@@ -13,4 +13,4 @@ npm dev
 
 ## Deploy on Vercel
 
-twitter-clone-app-psi.vercel.app/
+https://twitter-clone-app-psi.vercel.app/
